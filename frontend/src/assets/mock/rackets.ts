@@ -8,7 +8,7 @@ export const RACKETS: Racket[] = [
         description: 'Perfect balance of control and power.',
         price: 899000,
         image:
-            'https://images.unsplash.com/photo-1622279457486-62dcc4aaf998?w=800',
+            'https://wilsonstore.com.co/wp-content/uploads/2024/05/64f57681e7f6dd11f39f8e30_thumbnail.png',
         stock: 10
     },
     {
@@ -18,7 +18,7 @@ export const RACKETS: Racket[] = [
         description: 'Designed for aggressive spin players.',
         price: 950000,
         image:
-            'https://images.unsplash.com/photo-1595433707802-2f6d3c49b7b3?w=800',
+            'https://www.eltenista.com/upload/gallery/b2023030308255560.png',
         stock: 5
     },
     {
@@ -28,7 +28,7 @@ export const RACKETS: Racket[] = [
         description: 'Fast and versatile racket.',
         price: 830000,
         image:
-            'https://images.unsplash.com/photo-1626224583764-0f9a7fd5405d?w=800',
+            'https://www.headcolombia.com.co/wp-content/uploads/2025/09/speed-mp-l-2024-1200x1601.webp',
         stock: 7
     },
     {
@@ -38,7 +38,7 @@ export const RACKETS: Racket[] = [
         description: 'Comfort and precision in every shot.',
         price: 920000,
         image:
-            'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=800',
+            'https://yonex.com.co/wp-content/uploads/2025/01/100L.webp',
         stock: 8
     }
 ];
