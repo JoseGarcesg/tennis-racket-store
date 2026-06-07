@@ -31,7 +31,7 @@
             </div>
 
             <h2 class="text-2xl font-bold mt-10 mb-6">
-                Forma de pago
+                Payment Method
             </h2>
 
             <div class="border border-slate-300 rounded-xl overflow-hidden">
@@ -55,11 +55,12 @@
                             <p class="text-sm text-gray-500">
 
                                 @if (method.id === 1) {
-                                El pago se verá reflejado a más vencido
+                                the payment is made in cash upon delivery
                                 }
 
                                 @if (method.id === 2 || method.id === 3) {
-                                El pago se acredita al instante
+                                the payment is made through a secure online platform, ensuring a smooth and safe
+                                transaction
                                 }
 
                             </p>

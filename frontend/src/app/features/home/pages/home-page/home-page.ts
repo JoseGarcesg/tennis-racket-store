@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
-import { RACKETS } from '../../../../../assets/mock/rackets';
+import { Component, inject } from '@angular/core';
 import { ProductCard } from
   '../../../products/components/product-card/product-card';
 import { CommonModule } from '@angular/common';
+import { Products } from '../../../products/services/products';
+import { Racket } from '../../../../core/models/racket.model';
 
 @Component({
   selector: 'app-home-page',
@@ -11,5 +12,19 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home-page.css',
 })
 export class HomePage {
-  rackets = RACKETS;
+  private productsService = inject(Products);
+  rackets: Racket[] = [];
+
+  ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  private loadProducts() {
+
+    this.productsService
+      .getProducts()
+      .subscribe(products => {
+        this.rackets = products;
+      });
+  }
 }

@@ -3,12 +3,12 @@ import { PaymentMethod } from '../models/payment-method.model';
 export const PAYMENT_METHODS: PaymentMethod[] = [
     {
         id: 1,
-        name: 'Tarjeta de crédito',
+        name: 'Credit card',
         image: 'payments/credit-card.png'
     },
     {
         id: 2,
-        name: 'Consignación / transferencia bancaria',
+        name: 'Bank transfer',
         image: 'payments/bank-transfer.png'
     },
     {
