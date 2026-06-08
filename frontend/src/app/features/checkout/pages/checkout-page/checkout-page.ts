@@ -90,7 +90,14 @@ export class CheckoutPage {
 
           console.error(error);
 
-          this.toastService.show('Order created successfully ✅', 'success');
+          const message =
+            error.error.message ??
+            'Could not create order';
+
+          this.toastService.show(
+            message,
+            'error'
+          );
 
           this.isLoading.set(false);
         }
