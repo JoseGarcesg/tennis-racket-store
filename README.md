@@ -166,15 +166,6 @@ Las rutas están definidas en: [frontend/src/app/app.routes.ts](frontend/src/app
 - Prisma schema: [backend/prisma/schema.prisma](backend/prisma/schema.prisma)
 - Frontend rutas: [frontend/src/app/app.routes.ts](frontend/src/app/app.routes.ts)
 
-Si quieres, puedo:
-- añadir ejemplos de Postman collection o Insomnia;
-- crear `docker-compose.yml` para desarrollo;
-- generar un CHANGELOG y plantillas de PR/Issue.
-
----
-_Generado y adaptado al proyecto. Si quieres que lo deje más corto, más técnico, o incluya diagramas (arquitectura o ERD), dime cuál prefieres._
-
-
 **Próximas Mejoras**
 *Backend*
 Arquitectura y mantenibilidad
