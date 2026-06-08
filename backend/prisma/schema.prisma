@@ -8,16 +8,21 @@ datasource db {
 }
 
 model Racket {
-  id          Int      @id @default(autoincrement())
-  name        String
-  brand       String
-  description String
-  price       Float
-  image       String
-  stock       Int
-  createdAt   DateTime @default(now())
+  id              Int      @id @default(autoincrement())
+  name            String
+  brand           String
+  description     String
+  price           Float
+  image           String
+  stock           Int
+  weight          String?
+  balance         String?
+  headSize        String?
+  stringPattern   String?
+  level           String?
+  createdAt       DateTime @default(now())
 
-  orderItems OrderItem[]
+  orderItems      OrderItem[]
 }
 
 model Order {

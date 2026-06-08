@@ -14,7 +14,12 @@ async function main() {
                 description: 'Perfect balance of control and power for competitive players.',
                 price: 899000,
                 image: 'https://wilsonstore.com.co/wp-content/uploads/2024/05/64f57681e7f6dd11f39f8e30_thumbnail.png',
-                stock: 10
+                stock: 10,
+                weight: '305g',
+                balance: '32cm',
+                headSize: '98 sq in',
+                stringPattern: '16x19',
+                level: 'Advanced'
             },
             {
                 name: 'Babolat Pure Aero',
@@ -22,7 +27,12 @@ async function main() {
                 description: 'Built for aggressive spin and explosive shots.',
                 price: 950000,
                 image: 'https://www.eltenista.com/upload/gallery/b2023030308255561.png',
-                stock: 7
+                stock: 7,
+                weight: '300g',
+                balance: '32cm',
+                headSize: '100 sq in',
+                stringPattern: '16x19',
+                level: 'Intermediate / Advanced'
             },
             {
                 name: 'Head Speed MP',
@@ -30,7 +40,12 @@ async function main() {
                 description: 'Lightweight and versatile racket for all court players.',
                 price: 830000,
                 image: 'https://www.headcolombia.com.co/wp-content/uploads/2025/09/speed-mp-l-2024-1200x1601.webp',
-                stock: 12
+                stock: 12,
+                weight: '300g',
+                balance: '32cm',
+                headSize: '100 sq in',
+                stringPattern: '16x19',
+                level: 'Intermediate'
             },
             {
                 name: 'Yonex Ezone 98',
@@ -38,7 +53,12 @@ async function main() {
                 description: 'Excellent comfort and precision with powerful shots.',
                 price: 920000,
                 image: 'https://yonex.com.co/wp-content/uploads/2025/01/100L.webp',
-                stock: 8
+                stock: 8,
+                weight: '300g',
+                balance: '32cm',
+                headSize: '100 sq in',
+                stringPattern: '16x19',
+                level: 'Intermediate'
             },
             {
                 name: 'Tecnifibre TF40',
@@ -46,7 +66,12 @@ async function main() {
                 description: 'Premium feel with exceptional control.',
                 price: 870000,
                 image: 'https://images.unsplash.com/photo-1622163642998-1ea32cc1f7d?w=800',
-                stock: 5
+                stock: 5,
+                weight: '300g',
+                balance: '32cm',
+                headSize: '100 sq in',
+                stringPattern: '16x19',
+                level: 'Intermediate'
             }
         ]
     });
