@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { Cart } from '../../../cart/services/cart';
 import { ProductModal } from '../product-modal/product-modal';
+import { Toast } from '../../../../shared/services/toast';
 
 @Component({
   selector: 'app-product-card',
@@ -19,6 +20,7 @@ export class ProductCard {
   racket!: Racket;
 
   private cart = inject(Cart);
+  private toast = inject(Toast);
 
   showModal = signal(false);
 
@@ -31,6 +33,8 @@ export class ProductCard {
     console.log(
       `Added ${this.racket.name} to cart`
     );
+
+    this.toast.show(`${this.racket.name} added to cart`, 'success');
 
     console.log(
       `Current cart items: ${JSON.stringify(this.cart.cart())}`

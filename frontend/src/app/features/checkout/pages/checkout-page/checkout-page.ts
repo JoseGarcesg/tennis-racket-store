@@ -4,6 +4,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Cart } from '../../../cart/services/cart';
 import { Order } from '../../../../core/services/order';
 import { PAYMENT_METHODS } from '../../../../core/constants/payment-methods';
+import { Toast } from '../../../../shared/services/toast';
 
 @Component({
   selector: 'app-checkout-page',
@@ -16,6 +17,7 @@ export class CheckoutPage {
 
   private cartService = inject(Cart);
   private orderService = inject(Order);
+  private toastService = inject(Toast);
 
   customerName = '';
   email = '';
@@ -88,7 +90,7 @@ export class CheckoutPage {
 
           console.error(error);
 
-          alert('Could not create order');
+          this.toastService.show('Order created successfully ✅', 'success');
 
           this.isLoading.set(false);
         }
