@@ -7,4 +7,9 @@ export interface Racket {
     image: string;
     stock: number;
     createdAt?: string;
+    weight?: string;
+    balance?: string;
+    headSize?: string;
+    stringPattern?: string;
+    level?: string;
 }

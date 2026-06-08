@@ -1,12 +1,13 @@
-import { Component, inject, Input, input } from '@angular/core';
+import { Component, inject, Input, signal } from '@angular/core';
 import { Racket } from '../../../../core/models/racket.model';
 import { CommonModule } from '@angular/common';
 
 import { Cart } from '../../../cart/services/cart';
+import { ProductModal } from '../product-modal/product-modal';
 
 @Component({
   selector: 'app-product-card',
-  imports: [CommonModule],
+  imports: [CommonModule, ProductModal],
   templateUrl: './product-card.html',
   styleUrl: './product-card.css',
 })
@@ -17,8 +18,9 @@ export class ProductCard {
   })
   racket!: Racket;
 
-  private cart =
-    inject(Cart);
+  private cart = inject(Cart);
+
+  showModal = signal(false);
 
   addToCart() {
 
@@ -34,4 +36,13 @@ export class ProductCard {
       `Current cart items: ${JSON.stringify(this.cart.cart())}`
     );
   }
+
+  openModal() {
+    this.showModal.set(true);
+  }
+
+  closeModal() {
+    this.showModal.set(false);
+  }
+
 }
