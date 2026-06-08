@@ -69,7 +69,7 @@
 
                     <div class="flex items-center gap-4">
 
-                        <img [src]="item.racket.image" [alt]="item.racket.name"
+                        <img [src]="item.racket.image" [alt]="item.racket.name" (error)="setDefaultImage($event)"
                             class="w-16 h-16 rounded-xl object-cover" />
 
                         <div>
@@ -150,7 +150,8 @@
 
                     <div class="flex items-center gap-4 text-left">
 
-                        <img [src]="method.image" [alt]="method.name" class="w-10 h-10 object-contain" />
+                        <img [src]="method.image" [alt]="method.name" (error)="setDefaultImage($event)"
+                            class="w-10 h-10 object-contain" />
 
                         <div>
 

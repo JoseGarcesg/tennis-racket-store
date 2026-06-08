@@ -35,7 +35,8 @@
 
             <div class="bg-white rounded-2xl shadow-sm p-4 flex gap-4 items-center border border-slate-200">
 
-                <img [src]="item.racket.image" [alt]="item.racket.name" class="w-24 h-24 rounded-xl object-cover" />
+                <img [src]="item.racket.image" [alt]="item.racket.name" (error)="setDefaultImage($event)"
+                    class="w-24 h-24 rounded-xl object-cover" />
 
                 <div class="flex-1">
 

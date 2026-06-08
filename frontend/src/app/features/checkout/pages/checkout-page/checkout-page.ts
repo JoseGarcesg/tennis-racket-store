@@ -94,4 +94,9 @@ export class CheckoutPage {
         }
       });
   }
+
+  setDefaultImage(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = 'racket-placeholder.png';
+  }
 }

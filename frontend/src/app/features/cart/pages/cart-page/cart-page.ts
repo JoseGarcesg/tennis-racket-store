@@ -18,4 +18,9 @@ export class CartPage {
 
     this.cart.remove(id);
   }
+
+  setDefaultImage(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = 'racket-placeholder.png';
+  }
 }
