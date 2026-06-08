@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 
-import racketRoutes
-    from './routes/racket.routes';
+import racketRoutes from './routes/racket.routes';
+import orderRoutes from './routes/order.routes';
 
 const app = express();
 
@@ -13,6 +13,11 @@ app.use(express.json());
 app.use(
     '/api/rackets',
     racketRoutes
+);
+
+app.use(
+    '/api/orders',
+    orderRoutes
 );
 
 app.get(

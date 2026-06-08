@@ -16,6 +16,8 @@ model Racket {
   image       String
   stock       Int
   createdAt   DateTime @default(now())
+
+  orderItems OrderItem[]
 }
 
 model Order {
@@ -25,4 +27,19 @@ model Order {
   paymentMethod String
   total         Float
   createdAt     DateTime @default(now())
+
+  items OrderItem[]
+}
+
+model OrderItem {
+  id Int @id @default(autoincrement())
+
+  orderId  Int
+  racketId Int
+
+  quantity Int
+  price    Float
+
+  order  Order  @relation(fields: [orderId], references: [id])
+  racket Racket @relation(fields: [racketId], references: [id])
 }
