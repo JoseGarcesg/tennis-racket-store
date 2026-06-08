@@ -6,4 +6,5 @@ export interface Racket {
     price: number;
     image: string;
     stock: number;
+    createdAt?: string;
 }

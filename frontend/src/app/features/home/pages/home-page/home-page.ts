@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ProductCard } from
   '../../../products/components/product-card/product-card';
 import { CommonModule } from '@angular/common';
@@ -11,9 +11,12 @@ import { Racket } from '../../../../core/models/racket.model';
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
-export class HomePage {
+export class HomePage implements OnInit {
   private productsService = inject(Products);
-  rackets: Racket[] = [];
+  rackets = signal<Racket[]>([]);
+
+  isLoading = signal(true);
+  error = signal('');
 
   ngOnInit(): void {
     this.loadProducts();
@@ -23,8 +26,25 @@ export class HomePage {
 
     this.productsService
       .getProducts()
-      .subscribe(products => {
-        this.rackets = products;
+      .subscribe({
+        next: (products) => {
+          //console.log(products);
+          this.rackets
+            .set(products);
+
+          this.isLoading
+            .set(false);
+        },
+
+        error: (error) => {
+          console.error(error);
+
+          this.error
+            .set('Could not load products');
+
+          this.isLoading
+            .set(false);
+        }
       });
   }
 }

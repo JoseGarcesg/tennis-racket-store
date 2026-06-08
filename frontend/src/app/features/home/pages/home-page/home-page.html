@@ -11,14 +11,27 @@
 
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    @if (isLoading()) {
+    <div class="text-center py-20">
+        Loading products...
+    </div>
+    }
+
+    @if (error()) {
+    <div class="text-center text-red-500 py-20">
+        {{ error() }}
+    </div>
+    }
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         @for (
-        racket of rackets;
+        racket of rackets();
         track racket.id
         ) {
 
-        <app-product-card [racket]="racket" />
+        <app-product-card [racket]="racket">
+        </app-product-card>
 
         }
 

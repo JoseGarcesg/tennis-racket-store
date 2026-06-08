@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, Input, input } from '@angular/core';
 import { Racket } from '../../../../core/models/racket.model';
 import { CommonModule } from '@angular/common';
 
@@ -12,7 +12,10 @@ import { Cart } from '../../../cart/services/cart';
 })
 export class ProductCard {
 
-  racket = input.required<Racket>();
+  @Input({
+    required: true
+  })
+  racket!: Racket;
 
   private cart =
     inject(Cart);
@@ -20,11 +23,11 @@ export class ProductCard {
   addToCart() {
 
     this.cart.addToCart(
-      this.racket()
+      this.racket
     );
 
     console.log(
-      `Added ${this.racket().name} to cart`
+      `Added ${this.racket.name} to cart`
     );
 
     console.log(
