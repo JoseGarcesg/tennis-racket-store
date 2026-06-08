@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, computed } from '@angular/core';
 import { ProductCard } from
   '../../../products/components/product-card/product-card';
 import { CommonModule } from '@angular/common';
@@ -14,6 +14,18 @@ import { Racket } from '../../../../core/models/racket.model';
 export class HomePage implements OnInit {
   private productsService = inject(Products);
   rackets = signal<Racket[]>([]);
+  search = signal('');
+
+  filteredRackets = computed(() => {
+    const query = this.search().toLowerCase().trim();
+
+    if (!query) {
+      return this.rackets();
+    }
+
+    return this.rackets().filter(racket => racket.name.toLowerCase().includes(query)
+      || racket.brand.toLowerCase().includes(query));
+  });
 
   isLoading = signal(true);
   error = signal('');

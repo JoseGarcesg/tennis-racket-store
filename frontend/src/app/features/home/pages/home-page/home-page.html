@@ -23,10 +23,17 @@
     </div>
     }
 
+    <div class="mb-8 flex justify-between items-center flex-wrap gap-4">
+
+        <input #searchInput (input)="search.set(searchInput.value)" type="text" placeholder="Search racket or brand..."
+            class="w-full md:w-96 border border-slate-300 rounded-xl p-3 outline-none focus:ring-2 focus:ring-green-600" />
+
+    </div>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
         @for (
-        racket of rackets();
+        racket of filteredRackets();
         track racket.id
         ) {
 
