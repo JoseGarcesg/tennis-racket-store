@@ -45,4 +45,9 @@ export class ProductCard {
     this.showModal.set(false);
   }
 
+  setDefaultImage(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = 'racket-placeholder.png';
+  }
+
 }

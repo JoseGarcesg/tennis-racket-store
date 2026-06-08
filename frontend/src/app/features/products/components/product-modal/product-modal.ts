@@ -25,4 +25,9 @@ export class ProductModal {
   closeModal() {
     this.close.emit();
   }
+
+  setDefaultImage(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = 'racket-placeholder.png';
+  }
 }
