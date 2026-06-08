@@ -15,16 +15,57 @@ export class HomePage implements OnInit {
   private productsService = inject(Products);
   rackets = signal<Racket[]>([]);
   search = signal('');
+  selectedBrand = signal('All Brands');
+
+  brands = computed(() => {
+
+    const uniqueBrands =
+      [...new Set(
+        this.rackets()
+          .map(r => r.brand)
+      )];
+
+    return [
+      'All Brands',
+      ...uniqueBrands
+    ];
+  });
 
   filteredRackets = computed(() => {
-    const query = this.search().toLowerCase().trim();
 
-    if (!query) {
-      return this.rackets();
-    }
+    const query =
+      this.search()
+        .toLowerCase()
+        .trim();
 
-    return this.rackets().filter(racket => racket.name.toLowerCase().includes(query)
-      || racket.brand.toLowerCase().includes(query));
+    const brand =
+      this.selectedBrand();
+
+    return this.rackets()
+      .filter(racket => {
+
+        const matchesSearch =
+          !query
+          ||
+          racket.name
+            .toLowerCase()
+            .includes(query)
+          ||
+          racket.brand
+            .toLowerCase()
+            .includes(query);
+
+        const matchesBrand =
+          brand === 'All Brands'
+          ||
+          racket.brand === brand;
+
+        return (
+          matchesSearch
+          &&
+          matchesBrand
+        );
+      });
   });
 
   isLoading = signal(true);
