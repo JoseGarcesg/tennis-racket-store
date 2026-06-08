@@ -19,7 +19,7 @@ export class ProductCard {
   })
   racket!: Racket;
 
-  private cart = inject(Cart);
+  cart = inject(Cart);
   private toast = inject(Toast);
 
   showModal = signal(false);
@@ -34,7 +34,7 @@ export class ProductCard {
       `Added ${this.racket.name} to cart`
     );
 
-    this.toast.show(`${this.racket.name} added to cart`, 'success');
+    //this.toast.show(`${this.racket.name} added to cart`, 'success');
 
     console.log(
       `Current cart items: ${JSON.stringify(this.cart.cart())}`

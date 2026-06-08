@@ -12,6 +12,22 @@
         <p class="text-gray-600 text-sm mt-2">
             {{ racket.description }}
         </p>
+        <div class="mt-3">
+            @if (racket.stock - cart.getQuantity(racket.id) > 0) {
+
+            <p class="text-green-700 font-semibold text-sm">
+                {{ racket.stock - cart.getQuantity(racket.id) }} available
+            </p>
+
+            } @else {
+
+            <span class="text-sm text-red-600 font-medium">
+                Out of stock
+            </span>
+
+            }
+
+        </div>
         <button (click)="openModal()" class="mt-3 text-sm text-green-700 font-semibold hover:underline">
             View Details
         </button>
@@ -20,9 +36,23 @@
                 {{ racket.price | currency:'COP' }}
             </span>
 
-            <button (click)="addToCart()"
+            <!-- <button (click)="addToCart()"
                 class="bg-slate-900  text-white  px-4  py-2  rounded-xl  hover:opacity-90  transition">
                 Add to cart
+            </button> -->
+            <button (click)="addToCart()" [disabled]="racket.stock - cart.getQuantity(racket.id) === 0"
+                class="px-4 py-2 rounded-xl transition text-white"
+                [class.bg-slate-900]="racket.stock - cart.getQuantity(racket.id) > 0"
+                [class.hover:opacity-90]="racket.stock - cart.getQuantity(racket.id) > 0"
+                [class.bg-slate-400]="racket.stock - cart.getQuantity(racket.id) === 0"
+                [class.cursor-not-allowed]="racket.stock - cart.getQuantity(racket.id) === 0">
+
+                @if (racket.stock - cart.getQuantity(racket.id) > 0) {
+                Add to cart
+                } @else {
+                Sold Out
+                }
+
             </button>
         </div>
     </div>
